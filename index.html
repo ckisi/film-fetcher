@@ -28,17 +28,20 @@
                 <div class="column is-4">
                     <section class="box m-3">
                         <input type="text" class="input is-primary m-3" placeholder="Search for a film..."
-                            id="movie-serach">
+                            id="movie-search">
                         <button type="submit" class="button is-primary ml-3" id="search-button">Fetch!</button>
                     </section>
-                    <div class="box is-align-content-center m-3">
-                        <h2 class="subtitle is-2">Search by Genre</h2>
-                        <section>
-                            <button class="Stand Up Comedy">Button</button>
-                        </section>
+
+                    <div class="box has-text-primary text-uppercase">
+                        <h2 class="subtitle is-3">Fetch by Category</h2>
+                        <div id="category-buttons" class="card-body">
+                        <button type="button" class="button is-primary" id="movie">Movie</button>
+                        <button genre="button" class="button is-primary" id="show">Show</button>
+                        <button genre="button" class="button is-primary" id="episode">Episode</button>
                     </div>
                 </div>
-
+              </div>
+              
                 <div class="column is-8">
                     <div class="box columns is-multiline has-text-primary-00 has-padding-5 has-margin-5"
                         id="search-results">
@@ -48,6 +51,7 @@
                 </div>
             </div>
         </div>
+    </section>
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -61,8 +65,8 @@
                 </p>
             </div>
         </footer>
-    </section>
     <script src="./assets/js/script.js"></script>
+
 </body>
 
 </html>
