@@ -2,3 +2,9 @@ h1,
 h2 {
     font-family: 'Cinzel', serif;
 }
+
+/* FONT UTILS */
+.text-uppercase {
+    text-transform: uppercase;
+  }
+  
