@@ -18,24 +18,42 @@
     </head>
 
     <body>
-        <section class="section">
+        <h1
+        class="title is-flex is-justify-content-center is-align-items-center has-background-primary has-text-primary-00 p-3">
+        Film Fetcher
+    </h1>
+    <h2
+        class="subtitle is-flex is-justify-content-center is-align-items-center has-background-primary has-text-primary-00 p-3">
+        Fetch your
+        Favorite Films</h2>
+      
+      <section class="section">
             <div class="container">
                 <div class="column is-6">
-                    
+                    <section>
+                        <input type="text" class="input is-primary" placeholder="Search for a film..." id="movie-serach">
+                        <button type="submit" class="button is-primary" id="search-button">Fetch!</button>
+                    </section>
+          <h2
+            class = "box" is-align-content-center >
+            Search by Genre
+          </h2>
+            <section>
+                <h3><button class="Stand Up Comedy">Button</button></h3>
+            </section>
                 </div>
                 
-                <div class="column is-6">
-                    <div class="box has-text-primary-00 has-padding-5 has-margin-5">
-                        <h2 class="subtitle is-2">Results:</h2>
+              <div class="column is-6">
+                  <div class="box has-text-primary-00 has-padding-5 has-margin-5">
+                      <h2 class="subtitle is-2">Results:</h2>
             
-                        <div class="box has-margin-5 has-padding-5" id="searchResults" class="columns is-multiline" id="search-results">
+                      <div class="box has-margin-5 has-padding-5" id="searchResults" class="columns is-multiline" id="search-results">
                             <!-- This will contain search results -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <script src="./assets/js/script.js"></script>
-    </body>
-
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  <script src="./assets/js/script.js"></script>
+</body>
 </html>
