@@ -13,10 +13,35 @@ searchButton.addEventListener('click', function() {
         return response.json();
     })
     .then(data => {
-        // Handle the data received from the API
-        console.log(data);
+       // Handle the data received from the API
+       console.log(data);
+       displayResults(data);
     })
     .catch(error => {
         console.error('Error fetching data:', error);
     });
 })
+
+function displayResults(results) {
+    $('#search-results').empty();
+    
+    if (!results.Search || results.Search.length === 0) {
+        $('#search-results').text('No results found');
+        return;
+    } 
+
+    for (let i = 0; i < results.Search.length; i++) {
+        const resultColumn = $('<div>')
+        .addClass('column is-12');
+        
+        const resultCard = $('<div>')
+            .addClass('box');
+
+        const resultH3 = $('<h3>')
+            .text(`${results.Search[i].Title}`);
+
+        resultCard.append(resultH3);
+        resultColumn.append(resultCard);
+        $('#search-results').append(resultColumn);
+    }
+}
