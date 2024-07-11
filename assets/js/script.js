@@ -45,3 +45,30 @@ function displayResults(results) {
         $('#search-results').append(resultColumn);
     }
 }
+// Handles three category buttons: 'Movie', 'Show' and 'Episode'
+const categoryButtonHandler = function (event) {
+    const category = event.target.getAttribute('data-category');
+    if (category) {
+        getCategoryResults(category);
+      repoContainerEl.textContent = '';
+    }
+  };
+
+// Fetch the information for the button selected
+  const getCategoryResults = function (category) {
+    const searchInput = document.getElementById('movie-search').value;
+    const apiKey = '14fdd1f2';
+    const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`;
+    fetch(apiUrl).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          displayResults(data);
+        });
+      } else {
+        alert(`Error: Cannot get response...!`);
+      }
+    });
+  };
+
+  // Event listener for each Button
+  $(".category-button").on("click", categoryButtonHandler);
