@@ -31,14 +31,17 @@ function displayResults(results) {
     } 
 
     for (let i = 0; i < results.Search.length; i++) {
+        const resultId = results.Search[i].imdbID;
+        
         const resultColumn = $('<div>')
         .addClass('column is-12');
         
-        const resultCard = $('<div>')
-            .addClass('box');
+        const resultCard = $('<a>')
+        .addClass('box')
+        .attr('href', `./result.html?i=${resultId}`);
 
         const resultH3 = $('<h3>')
-            .text(`${results.Search[i].Title}`);
+        .text(`${results.Search[i].Title}`);
 
         resultCard.append(resultH3);
         resultColumn.append(resultCard);
@@ -50,7 +53,6 @@ const categoryButtonHandler = function (event) {
     const category = event.target.getAttribute('data-category');
     if (category) {
         getCategoryResults(category);
-      repoContainerEl.textContent = '';
     }
   };
 
