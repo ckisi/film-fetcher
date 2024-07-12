@@ -6,24 +6,34 @@ h2 {
 /* FONT UTILS */
 .text-uppercase {
     text-transform: uppercase;
-  }
-  
-  body {
+}
+
+body {
     background-color: aquamarine;
-  }
+}
 
-  h1 {
+h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+}
 
-  h2 {
+h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+}
 
-  button {
+button {
     font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+}
 
-  section {
+section {
     font-family: Georgia, 'Times New Roman', Times, serif;
-  }
+}
+
+.modal {
+    background-color: aliceblue;
+}
+
+/* added background to the modal */
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the last value (alpha) to control the transparency */
+}
