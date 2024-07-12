@@ -21,29 +21,45 @@
         class="subtitle is-flex is-justify-content-center is-align-items-center has-background-primary has-text-primary-00 p-3">
         Fetch your
         Favorite Films</h2>
+    <!-- added modal class and what the modal has written to the user -->
+    <div id="myModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p>I don't have a film to fetch.</p>
+                <button id="modalClose" class="button is-danger">Close</button>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
 
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column is-4">
-                    <section class="box my-7">
-                        <input type="text" class="input is-primary mr-3" placeholder="Search for a film..."
+                    <section class="box m-3">
+                        <input type="text" class="input is-primary m-3" placeholder="Search for a film..."
                             id="movie-search">
-                        <button type="submit" class="button is-primary mr-3" id="search-button">Fetch!</button>
+                        <button type="submit" class="button is-primary ml-3" id="search-button">Fetch!</button>
                     </section>
 
                     <div class="box has-text-primary text-uppercase">
                         <h2 class="subtitle is-3">Fetch by Category</h2>
                         <div id="category-buttons" class="card-body">
-                        <button type="button" class="button is-primary category-button" id="movie" data-category="movie">Movie</button>
-                        <button type="button" class="button is-primary category-button" id="series" data-category="series">Show</button>
-                        <button type="button" class="button is-primary category-button" id="episode" data-category="episode">Episode</button>
+                            <button type="button" class="button is-primary category-button" id="movie"
+                                data-category="movie">Movie</button>
+                            <button type="button" class="button is-primary category-button" id="series"
+                                data-category="series">Show</button>
+                            <button type="button" class="button is-primary category-button" id="episode"
+                                data-category="episode">Episode</button>
+                        </div>
                     </div>
                 </div>
-              </div>
 
-                <div class="column">
-                    <h2 class="subtitle is-3 mb-3">Results:</h2>
+                <div class="column is-8">
+                    <h2 class="subtitle is-2">Results:</h2>
                     <div class="box columns is-multiline has-text-primary-00 has-padding-5 has-margin-5"
                         id="search-results">
                         <!-- Results will be generated here -->
@@ -52,21 +68,22 @@
             </div>
         </div>
     </section>
-        
-       <footer class="footer">
-          <div class="content has-text-centered">
-               <p>
-                   <strong><Film-Fetcher></strong> Film-Fetcher is made by <a
-                       href="https://github.com/ckisi/film-fetcher">Project-1
-                       Team-2</a>.
 
-                    The source code is licensed
-                    <a href="https://opensource.org/license/mit">MIT</a>. The
-                    website content is licensed
-                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//">CC BY NC SA 4.0</a>.
-                </p>
-            </div>
-        </footer>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong><Film-Fetcher></strong> Film-Fetcher is made by <a
+                    href="https://github.com/ckisi/film-fetcher">Project-1
+                    Team-2</a>.
+
+                The source code is licensed
+                <a href="https://opensource.org/license/mit">MIT</a>. The
+                website content is licensed
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
