@@ -35,26 +35,34 @@ window.addEventListener("click", (event) => {
     myModal.classList.remove("is-active");
   }
 });
-function displayResults(results) {
-  $("#search-results").empty();
 
+function displayResults(results) {
+  $('#search-results').empty();
+  
   if (!results.Search || results.Search.length === 0) {
-    $("#search-results").text("No results found");
-    return;
-  }
+      $('#search-results').text('No results found');
+      return;
+  } 
 
   for (let i = 0; i < results.Search.length; i++) {
-    const resultColumn = $("<div>").addClass("column is-12");
+      const resultId = results.Search[i].imdbID;
+      
+      const resultColumn = $('<div>')
+      .addClass('column is-12');
+      
+      const resultCard = $('<a>')
+      .addClass('box')
+      .attr('href', `./result.html?i=${resultId}`);
 
-    const resultCard = $("<div>").addClass("box");
+      const resultH3 = $('<h3>')
+      .text(`${results.Search[i].Title} (${results.Search[i].Year})`);
 
-    const resultH3 = $("<h3>").text(`${results.Search[i].Title}`);
-
-    resultCard.append(resultH3);
-    resultColumn.append(resultCard);
-    $("#search-results").append(resultColumn);
+      resultCard.append(resultH3);
+      resultColumn.append(resultCard);
+      $('#search-results').append(resultColumn);
   }
 }
+
 // Handles three category buttons: 'Movie', 'Show' and 'Episode'
 const categoryButtonHandler = function (event) {
   const category = event.target.getAttribute("data-category");
@@ -79,3 +87,6 @@ const getCategoryResults = function (category) {
     }
   });
 };
+
+// Event listener for each Button
+$(".category-button").on("click", categoryButtonHandler);
