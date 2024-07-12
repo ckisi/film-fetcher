@@ -27,13 +27,3 @@ button {
 section {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
-.modal {
-    background-color: aliceblue;
-}
-
-/* added background to the modal */
-.modal-background {
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Adjust the last value (alpha) to control the transparency */
-}
