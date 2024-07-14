@@ -2,7 +2,17 @@ const searchButton = document.getElementById("search-button");
 const myModal = document.getElementById("myModal");
 const modalClose = document.getElementById("modalClose");
 // added modal to base
+// added read history to add local storage for searched items
+function readHistory() {
+  let searches = JSON.parse(localStorage.getItem("searches"));
+  if (!searches) {
+    // added array for searches and to return them to array
+    searches = [];
+  }
+  return searches;
+}
 //added code loop through and if the serch for the movie search is empty the modal will open
+// added modal to base
 searchButton.addEventListener("click", function () {
   const apiKey = "14fdd1f2";
   const searchInput = document.getElementById("movie-search").value;
@@ -25,6 +35,13 @@ searchButton.addEventListener("click", function () {
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
+  // added if loop to make sure the search bar is not empty. If empty search then it wont show in local storage
+  if (searchInput.trim() !== "") {
+    let searches = readHistory();
+    // added code to push searchInput and to stringify searches into array
+    searches.push(searchInput);
+    localStorage.setItem("searches", JSON.stringify(searches));
+  }
 });
 modalClose.addEventListener("click", () => {
   myModal.classList.remove("is-active");
@@ -75,10 +92,10 @@ const categoryButtonHandler = function (event) {
 const getCategoryResults = function (category) {
   let searchInput = document.getElementById("movie-search").value;
 
-  if (searchInput === '') {
+  if (searchInput === "") {
     const currentUrl = document.location.search;
-    if (currentUrl.includes('q=')) {
-      searchInput = currentUrl.split('=')[1];
+    if (currentUrl.includes("q=")) {
+      searchInput = currentUrl.split("=")[1];
     }
   }
   const apiKey = "14fdd1f2";
@@ -96,32 +113,32 @@ const getCategoryResults = function (category) {
 
 // will call the API only when redirected back to the page
 const reSearchApi = function () {
-	const currentUrl = document.location.search;
-	if (currentUrl.includes('q=')) {
-	  const newSearch = currentUrl.split('=')[1];
-	  const apiKey = "14fdd1f2";
-	  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${newSearch}`;
-	
-	  fetch(apiUrl)
-	  .then((response) => {
-		if (!response.ok) {
-		  throw new Error("Network response was not ok");
-		}
-		return response.json();
-	  })
-	  .then((data) => {
-		// Handle the data received from the API
-		console.log(data);
-		displayResults(data);
-	  })
-	  .catch((error) => {
-		console.error("Error fetching data:", error);
-	  });
-	}
-}
+  const currentUrl = document.location.search;
+  if (currentUrl.includes("q=")) {
+    const newSearch = currentUrl.split("=")[1];
+    const apiKey = "14fdd1f2";
+    const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${newSearch}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the data received from the API
+        console.log(data);
+        displayResults(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+};
 
 // Event listener for each Button
-$(document).ready(function() {
+$(document).ready(function () {
   $(".category-button").on("click", categoryButtonHandler);
   reSearchApi();
 });
