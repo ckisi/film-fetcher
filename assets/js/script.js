@@ -6,7 +6,7 @@ const modalClose = document.getElementById("modalClose");
 searchButton.addEventListener("click", function () {
   const apiKey = "14fdd1f2";
   const searchInput = document.getElementById("movie-search").value;
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`;
+  const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`; //added s to https
   if (document.getElementById("movie-search").value === "") {
     myModal.classList.add("is-active");
   }
@@ -37,29 +37,29 @@ window.addEventListener("click", (event) => {
 });
 
 function displayResults(results) {
-  $('#search-results').empty();
-  
+  $("#search-results").empty();
+
   if (!results.Search || results.Search.length === 0) {
-      $('#search-results').text('No results found');
-      return;
-  } 
+    $("#search-results").text("No results found");
+    return;
+  }
 
   for (let i = 0; i < results.Search.length; i++) {
-      const resultId = results.Search[i].imdbID;
-      
-      const resultColumn = $('<div>')
-      .addClass('column is-12');
-      
-      const resultCard = $('<a>')
-      .addClass('box')
-      .attr('href', `./result.html?i=${resultId}`);
+    const resultId = results.Search[i].imdbID;
 
-      const resultH3 = $('<h3>')
-      .text(`${results.Search[i].Title} (${results.Search[i].Year})`);
+    const resultColumn = $("<div>").addClass("column is-12");
 
-      resultCard.append(resultH3);
-      resultColumn.append(resultCard);
-      $('#search-results').append(resultColumn);
+    const resultCard = $("<a>")
+      .addClass("box")
+      .attr("href", `./result.html?i=${resultId}`);
+
+    const resultH3 = $("<h3>").text(
+      `${results.Search[i].Title} (${results.Search[i].Year})`
+    );
+
+    resultCard.append(resultH3);
+    resultColumn.append(resultCard);
+    $("#search-results").append(resultColumn);
   }
 }
 
@@ -68,7 +68,6 @@ const categoryButtonHandler = function (event) {
   const category = event.target.getAttribute("data-category");
   if (category) {
     getCategoryResults(category);
-    repoContainerEl.textContent = "";
   }
 };
 
@@ -76,7 +75,7 @@ const categoryButtonHandler = function (event) {
 const getCategoryResults = function (category) {
   const searchInput = document.getElementById("movie-search").value;
   const apiKey = "14fdd1f2";
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`;
+  const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`; //added s to https
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
