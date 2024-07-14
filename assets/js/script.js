@@ -73,9 +73,16 @@ const categoryButtonHandler = function (event) {
 
 // Fetch the information for the button selected
 const getCategoryResults = function (category) {
-  const searchInput = document.getElementById("movie-search").value;
+  let searchInput = document.getElementById("movie-search").value;
+
+  if (searchInput === '') {
+    const currentUrl = document.location.search;
+    if (currentUrl.includes('q=')) {
+      searchInput = currentUrl.split('=')[1];
+    }
+  }
   const apiKey = "14fdd1f2";
-  const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`; //added s to https
+  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`;
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -87,5 +94,34 @@ const getCategoryResults = function (category) {
   });
 };
 
+// will call the API only when redirected back to the page
+const reSearchApi = function () {
+	const currentUrl = document.location.search;
+	if (currentUrl.includes('q=')) {
+	  const newSearch = currentUrl.split('=')[1];
+	  const apiKey = "14fdd1f2";
+	  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${newSearch}`;
+	
+	  fetch(apiUrl)
+	  .then((response) => {
+		if (!response.ok) {
+		  throw new Error("Network response was not ok");
+		}
+		return response.json();
+	  })
+	  .then((data) => {
+		// Handle the data received from the API
+		console.log(data);
+		displayResults(data);
+	  })
+	  .catch((error) => {
+		console.error("Error fetching data:", error);
+	  });
+	}
+}
+
 // Event listener for each Button
-$(".category-button").on("click", categoryButtonHandler);
+$(document).ready(function() {
+  $(".category-button").on("click", categoryButtonHandler);
+  reSearchApi();
+});
