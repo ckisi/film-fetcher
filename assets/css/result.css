@@ -2,3 +2,22 @@ h1,
 h2 {
     font-family: 'Cinzel', serif;
 }
+
+#detailed-movie-info {
+    height: 80%;
+
+}
+
+p {
+    font-size: 24px;
+}
+
+.has-margin-bottom-50 {
+    margin-bottom: 50px;
+}
+
+/* h2.title.is-2.mb-5, */
+/* p.content.s-size-4.mb-6 { */
+/* margin-bottom: 3rem; */
+/* or your desired value */
+/* } */
