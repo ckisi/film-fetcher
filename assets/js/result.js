@@ -3,7 +3,7 @@ const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", function () {
   const apiKey = "14fdd1f2";
   const searchInput = document.getElementById("movie-search").value;
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`;
+  const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`;
 
   fetch(apiUrl)
     .then((response) => {
