@@ -21,3 +21,27 @@ p {
 /* margin-bottom: 3rem; */
 /* or your desired value */
 /* } */
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+section {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
