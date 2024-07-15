@@ -27,3 +27,13 @@ button {
 section {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.app-title {
+    font-size: 3rem;
+    background-color: var(--primary);
+    color: var(--dark);
+    padding: 0 10px;
+    display: inline-block;
+    border-radius: var(--border-radius);
+    box-shadow: 6px 5px var(--light-dark);
+  }
+  
