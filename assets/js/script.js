@@ -11,7 +11,7 @@ function readHistory() {
   }
   return searches;
 }
-//added code loop through and if the serch for the movie search is empty the modal will open
+//added if the search for the movie search is empty the modal will open
 // added modal to base
 searchButton.addEventListener("click", function () {
   const apiKey = "14fdd1f2";
@@ -35,7 +35,7 @@ searchButton.addEventListener("click", function () {
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
-  // added if loop to make sure the search bar is not empty. If empty search then it wont show in local storage
+  // added if to make sure the search bar is not empty. If empty search then it wont show in local storage
   if (searchInput.trim() !== "") {
     let searches = readHistory();
     // added code to push searchInput and to stringify searches into array
@@ -53,6 +53,7 @@ window.addEventListener("click", (event) => {
   }
 });
 
+// Displays the search results on the page
 function displayResults(results) {
   $("#search-results").empty();
 
@@ -99,7 +100,7 @@ const getCategoryResults = function (category) {
     }
   }
   const apiKey = "14fdd1f2";
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`;
+  const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}&type=${category}`;
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -117,7 +118,7 @@ const reSearchApi = function () {
   if (currentUrl.includes("q=")) {
     const newSearch = currentUrl.split("=")[1];
     const apiKey = "14fdd1f2";
-    const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&s=${newSearch}`;
+    const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&s=${newSearch}`;
 
     fetch(apiUrl)
       .then((response) => {
