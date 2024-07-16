@@ -34,7 +34,7 @@ function getId() {
 
 // Calls the Movie of the Night API with the ID
 function getFilmDetails(id) {
-  const apiKey = "51d8fb5913msh3d8b7b25194e55ep1930e9jsnb3c0ed44a727";
+  const apiKey = "c915d76c2emsh5807295d7e091e0p12591ajsn9cc36b90575c";
   const url = `https://streaming-availability.p.rapidapi.com/shows/${id}`;
 
   fetch(url, {
@@ -81,7 +81,7 @@ function displayFilmDetails(data) {
   const movieDetailsContainer = document.getElementById("detailed-movie-info");
   const streamingData = data.streamingOptions.us;
 
-  if (data.showType === 'movie') {
+  if (data.showType === "movie") {
     var movieDetailsContent = `
       <h2 class="title is-2 mb-6">${data.title}</h2>
       <p class="content is-size-4 has-margin-bottom-5">${data.overview}</p>
@@ -89,7 +89,7 @@ function displayFilmDetails(data) {
       <p class="content is-size-4 has-margin-bottom-5">Rating: ${data.rating}%</p>
       <p class="content is-size-4 has-margin-bottom-5">Runtime: ${data.runtime} mins</p>
     `;
-  } else if (data.showType === 'series') {
+  } else if (data.showType === "series") {
     var movieDetailsContent = `
       <h2 class="title is-2 mb-6">${data.title}</h2>
       <p class="content is-size-4 has-margin-bottom-5">${data.overview}</p>
@@ -98,9 +98,9 @@ function displayFilmDetails(data) {
       <p class="content is-size-4 has-margin-bottom-5">Episodes: ${data.episodeCount}</p>
     `;
   }
-  
+
   let subscriptionDiv = document.createElement("div");
-  
+
   for (let i = 0; i < streamingData.length; i++) {
     if (streamingData[i].type === "subscription") {
       // create element here with streamingData[i].service.name to get the name of the streaming service
