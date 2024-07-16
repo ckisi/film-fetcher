@@ -34,7 +34,7 @@ function getId() {
 
 // Calls the Movie of the Night API with the ID
 function getFilmDetails(id) {
-  const apiKey = "c915d76c2emsh5807295d7e091e0p12591ajsn9cc36b90575c";
+  const apiKey = "51d8fb5913msh3d8b7b25194e55ep1930e9jsnb3c0ed44a727";
   const url = `https://streaming-availability.p.rapidapi.com/shows/${id}`;
 
   fetch(url, {
